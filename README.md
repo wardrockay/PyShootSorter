@@ -1,58 +1,58 @@
-# 📦 Trieur - Organisateur de Photos et Vidéos
+# 📦 MediaSorter - Photo and Video Organizer
 
-Trieur est un script Python qui organise automatiquement vos photos et vidéos en les classant dans des dossiers par date de création. Il extrait les métadonnées (EXIF pour les photos, métadonnées pour les vidéos) et déplace les fichiers dans des dossiers nommés selon la date de prise de vue.
+MediaSorter is a Python script that automatically organizes your photos and videos by sorting them into folders based on their creation date. It extracts metadata (EXIF for photos, metadata for videos) and moves files into folders named according to the date they were taken.
 
-## ✅ Prérequis
+## ✅ Prerequisites
 
-* Python 3.x installé sur votre système (vérifiez avec `python --version`)
-* Les bibliothèques suivantes (installables via pip):
-  * `exifread` - Pour extraire les métadonnées EXIF des photos
-  * `hachoir` - Pour extraire les métadonnées des fichiers vidéo
-  * `tqdm` - Pour afficher des barres de progression
+* Python 3.x installed on your system (verify with `python --version`)
+* The following libraries (installable via pip):
+  * `exifread` - For extracting EXIF metadata from photos
+  * `hachoir` - For extracting metadata from video files
+  * `tqdm` - For displaying progress bars
 
 ---
 
-## 🔧 Étapes
+## 🔧 Setup
 
-### 1. Créer un environnement virtuel
+### 1. Create a virtual environment
 
-Dans votre terminal (CMD ou PowerShell), placez-vous dans le dossier de votre projet, puis exécutez :
+In your terminal (CMD or PowerShell), navigate to your project folder, then run:
 
 ```bash
 python -m venv venv
 ```
 
-Cela créera un dossier `venv/` contenant l’environnement virtuel.
+This will create a `venv/` folder containing the virtual environment.
 
-### 2. Activer l’environnement virtuel
+### 2. Activate the virtual environment
 
-Sous **Windows** :
+On **Windows**:
 
-* Avec **CMD** :
+* With **CMD**:
 
   ```bash
   venv\Scripts\activate.bat
   ```
 
-* Avec **PowerShell** :
+* With **PowerShell**:
 
   ```powershell
   .\venv\Scripts\Activate.ps1
   ```
 
-Une fois activé, vous verrez le nom de l’environnement (souvent `(venv)`) au début de votre ligne de commande.
+Once activated, you'll see the environment name (usually `(venv)`) at the beginning of your command line.
 
-### 3. Installer les dépendances
+### 3. Install dependencies
 
-Assurez-vous que le fichier `requirements.txt` est bien présent, puis exécutez :
+Make sure the `requirements.txt` file is present, then run:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Désactiver l’environnement virtuel (optionnel)
+### 4. Deactivate the virtual environment (optional)
 
-Pour sortir de l’environnement virtuel :
+To exit the virtual environment:
 
 ```bash
 deactivate
@@ -60,72 +60,71 @@ deactivate
 
 ---
 
-## 📁 Structure du projet (exemple)
+## 📁 Project Structure (example)
 
 ```
-mon-projet/
-├── venv/               # Environnement virtuel (ne pas versionner)
-├── script.py           # Votre script principal
-├── requirements.txt    # Liste des dépendances
-└── README.md           # Ce fichier
+my-project/
+├── venv/               # Virtual environment (don't version control)
+├── script.py           # Your main script
+├── requirements.txt    # List of dependencies
+└── README.md           # This file
 ```
 
 ---
 
-## 🔒 Bonnes pratiques
+## 🔒 Best Practices
 
-* Ajoutez `venv/` dans votre `.gitignore` si vous utilisez Git.
-* Utilisez toujours un environnement virtuel pour isoler les dépendances de votre projet.
-
----
-
-## 📎 Ressources
-
-* [Documentation officielle Python – venv](https://docs.python.org/3/library/venv.html)
+* Add `venv/` to your `.gitignore` if you're using Git.
+* Always use a virtual environment to isolate your project dependencies.
 
 ---
 
-## 📋 Fonctionnalités
+## 📎 Resources
 
-* **Organisation automatique** - Trie les photos et vidéos depuis un dossier source vers des dossiers de destination organisés par date
-* **Extraction de métadonnées** - Utilise les données EXIF pour les photos et les métadonnées pour les vidéos
-* **Formats supportés**:
+* [Official Python Documentation – venv](https://docs.python.org/3/library/venv.html)
+
+---
+
+## 📋 Features
+
+* **Automatic Organization** - Sorts photos and videos from a source folder to destination folders organized by date
+* **Metadata Extraction** - Uses EXIF data for photos and metadata for videos
+* **Supported Formats**:
   * Photos: jpg, jpeg, png, tif, tiff, nef, dng
-  * Vidéos: mp4, mov, avi, mkv
-* **Barres de progression** - Affiche l'avancement du traitement avec le nom du fichier en cours
-* **Gestion des erreurs** - Traitement robuste des erreurs et possibilité d'interrompre proprement avec Ctrl+C
-* **Vérification de placement** - Mode de vérification pour s'assurer que les fichiers sont dans les bons dossiers
+  * Videos: mp4, mov, avi, mkv
+* **Progress Bars** - Displays processing progress with the name of the current file
+* **Error Handling** - Robust error processing and ability to properly interrupt with Ctrl+C
+* **Placement Verification** - Verification mode to ensure files are in the correct folders
 
-## 🚀 Utilisation
+## 🚀 Usage
 
-1. Exécutez le script:
+1. Run the script:
    ```bash
-   python trieur.py
+   python mediasorter.py
    ```
 
-2. Choisissez l'une des options suivantes:
-   * **1: Trie des fichiers** - Pour organiser les fichiers du dossier source vers les dossiers de destination
-   * **2: Vérification de l'emplacement des photos** - Pour vérifier si les photos sont correctement placées
-   * **3: Quitter** - Pour quitter le programme
+2. Choose one of the following options:
+   * **1: Sort files** - To organize files from the source folder to destination folders
+   * **2: Verify photo placement** - To check if photos are correctly placed
+   * **3: Exit** - To quit the program
 
 ## ⚙️ Configuration
 
-Les chemins des dossiers sont définis au début du script:
+Folder paths are defined at the beginning of the script:
 
 ```python
-SOURCE_FOLDER = 'Z:\\bucket'        # Dossier source contenant les fichiers à trier
-VIDEO_DEST = 'Z:\\Video'           # Destination pour les vidéos
-PHOTO_DEST = 'Z:\\Photo\\RAW'      # Destination pour les photos
+SOURCE_FOLDER = 'Z:\\bucket'        # Source folder containing files to sort
+VIDEO_DEST = 'Z:\\Video'           # Destination for videos
+PHOTO_DEST = 'Z:\\Photo\\RAW'      # Destination for photos
 ```
 
-Modifiez ces variables selon votre configuration.
+Modify these variables according to your configuration.
 
-## 🔍 Structure des dossiers de destination
+## 🔍 Destination Folder Structure
 
-Les fichiers sont organisés dans des sous-dossiers nommés selon le format `AAAAMMJJ` (année, mois, jour).
+Files are organized in subfolders named according to the format `YYYYMMDD` (year, month, day).
 
-Exemple:
+Example:
 ```
 Z:\Photo\RAW\20250727\photo1.jpg
 Z:\Video\20250726\video1.mp4
-```
