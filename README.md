@@ -1,6 +1,6 @@
-# 📦 MediaSorter - Photo and Video Organizer
+# 📦 PyShootSorter - Photo and Video Organizer
 
-MediaSorter is a Python script that automatically organizes your photos and videos by sorting them into folders based on their creation date. It extracts metadata (EXIF for photos, metadata for videos) and moves files into folders named according to the date they were taken.
+PyShootSorter is a Python script that automatically organizes your photos and videos by sorting them into folders based on their creation date. It extracts metadata (EXIF for photos, metadata for videos) and moves files into folders named according to the date they were taken.
 
 ## ✅ Prerequisites
 
@@ -100,7 +100,7 @@ my-project/
 
 1. Run the script:
    ```bash
-   python mediasorter.py
+   python PyShootSorter.py
    ```
 
 2. Choose one of the following options:
